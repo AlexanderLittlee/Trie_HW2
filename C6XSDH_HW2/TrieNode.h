@@ -8,6 +8,8 @@ public:
 	TrieNode(bool isend = false) : mEnd(isend) {};
 	~TrieNode() {};
 
+	//getChildren
+
 private:
 	bool mEnd;
 	std::vector<std::shared_ptr<TrieNode>> mChildren;
