@@ -5,14 +5,17 @@
 class TrieNode
 {
 public:
-	TrieNode(bool isend = false) : mEnd(isend) {};
+	TrieNode();
+	TrieNode(const bool& isend);
 
-	std::vector<std::shared_ptr<TrieNode>> children();
+	std::vector<std::shared_ptr<TrieNode>>* children();
+	std::shared_ptr<TrieNode> children(const char& c);
 	bool is_end() const;
 	void make_end();
+	void add_node();
 
 private:
-	bool mEnd;
+	bool mEnd=false;
 	std::vector<std::shared_ptr<TrieNode>> mChildren;
 };
 
