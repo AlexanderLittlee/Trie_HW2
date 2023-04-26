@@ -1,5 +1,7 @@
 #include "Trie.h"
-
+#include <sstream>
+#include <fstream>
+#include <iostream>
 
 Trie::Trie() 
 	: mRoot(TrieNode::createNode())
@@ -49,11 +51,33 @@ bool Trie::startsWith(const std::string& prefix)
 
 void Trie::readFromFile(const std::string& path)
 {
-	//ez olvassa be a fájlt és csinál trie-t belõle
+	//not yet working good for wordsEn
+	
+	std::ifstream fileReader(path);
+	std::string line;
+	while (getline(fileReader,line))
+	{
+		if (line.find("'") == std::string::npos)
+			insert(line);
+		else
+			line = "";
+	}
+	fileReader.close();
 }
 
 void Trie::isCorrect(const std::string& word)
 {
-	//ez a bevitt szöveget ellenõrzi
+	bool correct = true;
+	std::string w;
+	std::stringstream ss(word);
+	while (correct && ss >> w)
+	{
+		correct = search(w);
+	}
+	
+	if (correct)
+		std::cout << "Your text is correct" << std::endl;
+	else
+		std::cout << "Your text is not correct" << std::endl;
 }
 
