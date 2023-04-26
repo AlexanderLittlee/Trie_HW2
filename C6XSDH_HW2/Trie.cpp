@@ -35,7 +35,16 @@ bool Trie::search(const std::string& word)
 
 bool Trie::startsWith(const std::string& prefix)
 {
-	return false;
+	std::shared_ptr<TrieNode> node = mRoot;
+	for (char c : prefix)
+	{
+		int idx = c - 'a';
+		if (!node->mChildren[idx])
+			return false;
+
+		node = node->mChildren[idx];
+	}
+	return true;
 }
 
 void Trie::readFromFile(const std::string& path)
