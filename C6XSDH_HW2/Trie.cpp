@@ -7,15 +7,33 @@ Trie::Trie()
 
 void Trie::insert(const std::string& word)
 {
-	
+	std::shared_ptr<TrieNode> node = mRoot;
+	for (char c : word) 
+	{
+		int idx = c - 'a';
+		if (!node->mChildren[idx])
+			node->mChildren[idx] = TrieNode::createNode();
+
+		node = node->mChildren[idx];
+	}
+	node->makeEnd();
 }
 
 bool Trie::search(const std::string& word)
 {
-	return 0;
+	std::shared_ptr<TrieNode> node = mRoot;
+	for (char c : word)
+	{
+		int idx = c - 'a';
+		if (!node->mChildren[idx])
+			return false;
+
+		node = node->mChildren[idx];
+	}
+	return node->isEnd();
 }
 
-bool Trie::startsWith(const std::string& word)
+bool Trie::startsWith(const std::string& prefix)
 {
 	return false;
 }
