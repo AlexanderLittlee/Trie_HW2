@@ -9,8 +9,8 @@ public:
 	TrieNode();
 	TrieNode(const bool& isend);
 
-	bool is_end() const;
-	std::shared_ptr<TrieNode> create_node();
+	bool isEnd() const;
+	static std::shared_ptr<TrieNode> createNode();
 
 private:
 	bool mEnd=false;

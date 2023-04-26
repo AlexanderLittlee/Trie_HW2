@@ -2,9 +2,8 @@
 
 
 Trie::Trie() 
-{
-
-}
+	: mRoot(TrieNode::createNode())
+{}
 
 void Trie::insert(const std::string& word)
 {
@@ -14,6 +13,11 @@ void Trie::insert(const std::string& word)
 bool Trie::search(const std::string& word)
 {
 	return 0;
+}
+
+bool Trie::startsWith(const std::string& word)
+{
+	return false;
 }
 
 void Trie::readFromFile(const std::string& path)

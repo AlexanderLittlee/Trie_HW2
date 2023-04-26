@@ -9,12 +9,17 @@ TrieNode::TrieNode(const bool& isend)
 {}
 
 
-bool TrieNode::is_end() const
+bool TrieNode::isEnd() const
 {
 	return mEnd;
 }
 
-std::shared_ptr<TrieNode> TrieNode::create_node()
+void TrieNode::makeEnd()
+{
+	mEnd = true;
+}
+
+std::shared_ptr<TrieNode> TrieNode::createNode()
 {
 	return std::make_shared<TrieNode>();
 }
