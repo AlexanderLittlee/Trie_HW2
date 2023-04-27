@@ -13,6 +13,9 @@ void Trie::insert(const std::string& word)
 	for (char c : word) 
 	{
 		int idx = c - 'a';
+		if (idx < 0 || idx>25)
+			idx = 0;
+
 		if (!node->mChildren[idx])
 			node->mChildren[idx] = TrieNode::createNode();
 
@@ -51,10 +54,9 @@ bool Trie::startsWith(const std::string& prefix)
 
 void Trie::readFromFile(const std::string& path)
 {
-	//not yet working good for wordsEn
-	
+	//entert kezeld le
 	std::ifstream fileReader(path);
-	std::string line;
+	std::string line="";
 	while (getline(fileReader,line))
 	{
 		if (line.find("'") == std::string::npos)

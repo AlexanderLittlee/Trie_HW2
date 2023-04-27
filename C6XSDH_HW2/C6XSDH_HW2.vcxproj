@@ -135,6 +135,9 @@
     <ClInclude Include="Trie.h" />
     <ClInclude Include="TrieNode.h" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="wordsEn.txt" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
