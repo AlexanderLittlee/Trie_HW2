@@ -14,7 +14,7 @@ void Trie::insert(const std::string& word)
 	{
 		int idx = c - 'a';
 		if (idx < 0 || idx>25)
-			idx = 0;
+			return;
 
 		if (!node->mChildren[idx])
 			node->mChildren[idx] = TrieNode::createNode();
